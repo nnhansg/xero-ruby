@@ -240,10 +240,6 @@ module XeroRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@code.nil? && @code.to_s.length > 10
-        invalid_properties.push('invalid value for "code", the character length must be smaller than or equal to 10.')
-      end
-
       if !@name.nil? && @name.to_s.length > 150
         invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 150.')
       end
@@ -254,7 +250,6 @@ module XeroRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@code.nil? && @code.to_s.length > 10
       return false if !@name.nil? && @name.to_s.length > 150
       status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "ARCHIVED", "DELETED"])
       return false unless status_validator.valid?(@status)
@@ -265,16 +260,6 @@ module XeroRuby
       system_account_validator = EnumAttributeValidator.new('String', ["DEBTORS", "CREDITORS", "BANKCURRENCYGAIN", "GST", "GSTONIMPORTS", "HISTORICAL", "REALISEDCURRENCYGAIN", "RETAINEDEARNINGS", "ROUNDING", "TRACKINGTRANSFERS", "UNPAIDEXPCLM", "UNREALISEDCURRENCYGAIN", "WAGEPAYABLES", ""])
       return false unless system_account_validator.valid?(@system_account)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] code Value to be assigned
-    def code=(code)
-      if !code.nil? && code.to_s.length > 10
-        fail ArgumentError, 'invalid value for "code", the character length must be smaller than or equal to 10.'
-      end
-
-      @code = code
     end
 
     # Custom attribute writer method with validation
