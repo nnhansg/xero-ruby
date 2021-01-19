@@ -203,10 +203,6 @@ module XeroRuby
         invalid_properties.push('invalid value for "code", the character length must be smaller than or equal to 12.')
       end
 
-      if !@details.nil? && @details.to_s.length > 18
-        invalid_properties.push('invalid value for "details", the character length must be smaller than or equal to 18.')
-      end
-
       if !@narrative.nil? && @narrative.to_s.length > 18
         invalid_properties.push('invalid value for "narrative", the character length must be smaller than or equal to 18.')
       end
@@ -253,16 +249,6 @@ module XeroRuby
       end
 
       @code = code
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] details Value to be assigned
-    def details=(details)
-      if !details.nil? && details.to_s.length > 18
-        fail ArgumentError, 'invalid value for "details", the character length must be smaller than or equal to 18.'
-      end
-
-      @details = details
     end
 
     # Custom attribute writer method with validation
