@@ -108,7 +108,6 @@ module XeroRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@details.nil? && @details.to_s.length > 18
       return false if !@code.nil? && @code.to_s.length > 12
       return false if !@reference.nil? && @reference.to_s.length > 12
       true

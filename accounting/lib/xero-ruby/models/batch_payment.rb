@@ -216,7 +216,6 @@ module XeroRuby
       return false if !@reference.nil? && @reference.to_s.length > 12
       return false if !@particulars.nil? && @particulars.to_s.length > 12
       return false if !@code.nil? && @code.to_s.length > 12
-      return false if !@details.nil? && @details.to_s.length > 18
       return false if !@narrative.nil? && @narrative.to_s.length > 18
       true
     end
